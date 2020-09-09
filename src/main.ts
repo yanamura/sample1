@@ -9,6 +9,27 @@ async function run(): Promise<void> {
       state: 'open'
     })
     core.info(`pr num: ${pullRequests.length}`)
+
+    const prNumber = pullRequests[0].number
+
+    const hoge = await octokit.graphql(
+      `
+      query($owner: String!, $name: String!, $number: Int!) {
+        repository(owner: $owner, name: $repo) {
+          pullRequest(number: $number) {
+            body
+          }
+        }
+      }
+      `,
+      {
+        owner: github.context.repo.owner,
+        name: github.context.repo.repo,
+        number: prNumber
+      }
+    )
+
+    core.info(`${hoge}`)
   } catch (error) {
     core.info('error')
   }
