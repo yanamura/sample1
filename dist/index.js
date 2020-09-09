@@ -1429,7 +1429,12 @@ function run() {
         repository(owner: $owner, name: $name) {
           pullRequest(number: $number) {
             timelineItems(first: 20, itemTypes: [READY_FOR_REVIEW_EVENT]) {
-              nodes
+              nodes {
+                __typename
+                ... on ReadyForReviewEvent {
+                  createdAt
+                }
+              }
             }
           }
         }
