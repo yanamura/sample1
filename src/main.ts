@@ -30,7 +30,7 @@ async function run(): Promise<void> {
       }
     )
 
-    core.info(`${hoge}`)
+    core.info(`${JSON.stringify(hoge)}`)
   } catch (error) {
     core.info(`${error}`)
   }

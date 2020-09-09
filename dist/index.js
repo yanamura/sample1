@@ -1437,7 +1437,7 @@ function run() {
                 name: github.context.repo.repo,
                 number: prNumber
             });
-            core.info(`${hoge}`);
+            core.info(`${JSON.stringify(hoge)}`);
         }
         catch (error) {
             core.info(`${error}`);
