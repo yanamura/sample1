@@ -1423,6 +1423,7 @@ function run() {
             const { data: pullRequests } = yield octokit.pulls.list(Object.assign(Object.assign({}, github.context.repo), { state: 'open' }));
             core.info(`pr num: ${pullRequests.length}`);
             const prNumber = pullRequests[0].number;
+            core.info(`prNumber: ${prNumber}`);
             const hoge = yield octokit.graphql(`
       query($owner: String!, $name: String!, $number: Int!) {
         repository(owner: $owner, name: $repo) {
@@ -1439,7 +1440,7 @@ function run() {
             core.info(`${hoge}`);
         }
         catch (error) {
-            core.info('error');
+            core.info(`${error}`);
         }
     });
 }

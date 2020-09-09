@@ -11,6 +11,7 @@ async function run(): Promise<void> {
     core.info(`pr num: ${pullRequests.length}`)
 
     const prNumber = pullRequests[0].number
+    core.info(`prNumber: ${prNumber}`)
 
     const hoge = await octokit.graphql(
       `
@@ -31,7 +32,7 @@ async function run(): Promise<void> {
 
     core.info(`${hoge}`)
   } catch (error) {
-    core.info('error')
+    core.info(`${error}`)
   }
 }
 
