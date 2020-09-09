@@ -1428,7 +1428,7 @@ function run() {
       query($owner: String!, $name: String!, $number: Int!) {
         repository(owner: $owner, name: $name) {
           pullRequest(number: $number) {
-            timelineItems(first: 20, itemTypes: [ReadyForReviewEvent]) {
+            timelineItems(first: 20, itemTypes: [READY_FOR_REVIEW_EVENT]) {
               nodes
             }
           }
