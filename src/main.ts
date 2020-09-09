@@ -18,7 +18,7 @@ async function run(): Promise<void> {
       query($owner: String!, $name: String!, $number: Int!) {
         repository(owner: $owner, name: $name) {
           pullRequest(number: $number) {
-            timelineItems(first: 20) {
+            timelineItems(first: 20, itemTypes: [ReadyForReviewEvent]) {
               nodes
             }
           }
