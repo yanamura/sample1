@@ -1428,7 +1428,9 @@ function run() {
       query($owner: String!, $name: String!, $number: Int!) {
         repository(owner: $owner, name: $name) {
           pullRequest(number: $number) {
-            body
+            timelineItems() {
+              nodes
+            }
           }
         }
       }
