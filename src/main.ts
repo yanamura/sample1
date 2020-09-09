@@ -16,7 +16,7 @@ async function run(): Promise<void> {
     const hoge = await octokit.graphql(
       `
       query($owner: String!, $name: String!, $number: Int!) {
-        repository(owner: $owner, name: $repo) {
+        repository(owner: $owner, name: $name) {
           pullRequest(number: $number) {
             body
           }

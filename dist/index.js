@@ -1426,7 +1426,7 @@ function run() {
             core.info(`prNumber: ${prNumber}`);
             const hoge = yield octokit.graphql(`
       query($owner: String!, $name: String!, $number: Int!) {
-        repository(owner: $owner, name: $repo) {
+        repository(owner: $owner, name: $name) {
           pullRequest(number: $number) {
             body
           }
