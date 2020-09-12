@@ -38,6 +38,12 @@ async function run(): Promise<void> {
     )
 
     core.info(`${JSON.stringify(hoge)}`)
+
+    await octokit.issues.createComment({
+      ...github.context.repo,
+      issue_number: prNumber,
+      body: '@yanamura hogehoge'
+    })
   } catch (error) {
     core.info(`${error}`)
   }

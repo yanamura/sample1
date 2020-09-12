@@ -1445,6 +1445,7 @@ function run() {
                 number: prNumber
             });
             core.info(`${JSON.stringify(hoge)}`);
+            yield octokit.issues.createComment(Object.assign(Object.assign({}, github.context.repo), { issue_number: prNumber, body: '@yanamura hogehoge' }));
         }
         catch (error) {
             core.info(`${error}`);
