@@ -1445,6 +1445,8 @@ function run() {
                 number: prNumber
             });
             core.info(`${JSON.stringify(hoge)}`);
+            const reviewers = yield octokit.pulls.listRequestedReviewers(Object.assign(Object.assign({}, github.context.repo), { pull_number: prNumber }));
+            core.info(`${JSON.stringify(reviewers)}`);
             yield octokit.issues.createComment(Object.assign(Object.assign({}, github.context.repo), { issue_number: prNumber, body: '@yanamura hogehoge' }));
         }
         catch (error) {

@@ -39,6 +39,13 @@ async function run(): Promise<void> {
 
     core.info(`${JSON.stringify(hoge)}`)
 
+    const reviewers = await octokit.pulls.listRequestedReviewers({
+      ...github.context.repo,
+      pull_number: prNumber
+    })
+
+    core.info(`${JSON.stringify(reviewers)}`)
+
     await octokit.issues.createComment({
       ...github.context.repo,
       issue_number: prNumber,
